@@ -1,5 +1,5 @@
 
-<div class="col-lg-12">
+<div class="col-lg-11">
     <?php echo $this->session->flashdata('message');?>
     <a href="../admin/admin/addUsers" class="btn btn-success" role="button">Add Users</a>
     <br>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Detail_kerusakanController extends CI_Controller {
+class Detail_kerusakan extends CI_Controller {
 
 	function __construct()
     {
@@ -9,12 +9,12 @@ class Detail_kerusakanController extends CI_Controller {
         $this->load->model('admin/Model_detail_kerusakan');
     }
 
-	public function indexDetailKerusakan()
+	public function index()
 	{
-		$data['title'] = 'Halaman PIC';
+		$data['title'] = 'Halaman Detail Kerusakan';
 		$data['subtitle'] = 'Halaman Pengelolahan Detail Kerusakan IT Helpdesk';
 		$data['users'] = $this->Model_detail_kerusakan->get_dataDetailKerusakan();
-		$data['content'] = $this->load->view('admin/detail_kerusakan/index', $data ,TRUE); 
+		$data['content'] = $this->load->view('detail_kerusakan/index', $data ,TRUE); 
 		$this->load->view('template/main', $data);
 	}
 	
@@ -38,13 +38,13 @@ class Detail_kerusakanController extends CI_Controller {
 			);
 
 			$this->Model_detail_kerusakan->input_data($data,'DEMAGE_DETAILS');
-			redirect('admin', 'refresh');
+			redirect('kerusakan/Detail_Kerusakan/index', 'refresh');
 
 		}
 		else{
 			$data['title'] = 'Halaman Add Users';
 			$data['subtitle'] = 'input anda error';
-			$data['content'] = $this->load->view('admin/view_addusers', $data, TRUE); 
+			$data['content'] = $this->load->view('detail_kerusakan/index', $data, TRUE); 
 			$this->load->view('template/main', $data);
 		}
 	}
@@ -85,7 +85,7 @@ class Detail_kerusakanController extends CI_Controller {
 			// $data['user'] = $this->model_admin->edit_data($where,'USERS')->result();
 			$where = array('ID_DEMAGE_DETAILS' => $ID_DEMAGE_DETAILS);
 			$data['users'] = $this->Model_detail_kerusakan->update_data($where,'DEMAGE_DETAILS')->result();
-			$data['content'] = $this->load->view('admin/detail_kerusakan/index', $data ,TRUE); 
+			$data['content'] = $this->load->view('detail_kerusakan/index', $data ,TRUE); 
 			$this->load->view('template/main', $data);
 		}
 
@@ -94,7 +94,8 @@ class Detail_kerusakanController extends CI_Controller {
 	function deleteDetailKerusakan($id){
 		$where = array('ID_DEMAGE_DETAILS' => $id);
 		$this->Model_detail_kerusakan->delete_data($where,'DEMAGE_DETAILS');
-		redirect('Detail_kerusakanController/index', 'refresh');
+		redirect('kerusakan/Detail_Kerusakan/index', 'refresh');
+		// redirect('admin/detail_kerusakan/index','refresh');
 	}
 
 }

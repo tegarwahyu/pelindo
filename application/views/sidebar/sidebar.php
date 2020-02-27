@@ -42,19 +42,59 @@
                                 <li class="app-sidebar__heading">Master</li>
                                 <li>
                                 <li>
-                                    <a href="<?php echo base_url('/master/Detail_KerusakanController/indexDetailKerusakan')?>">
+                                    <a href="<?php echo base_url('/pic/Pic/indexPIC')?>">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         PIC
                                     </a>
-                                    <a href="<?php echo base_url('/master/PicController/indexPIC')?>">
+                                    <a href="#">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Kerusakan
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
+                                        <ul>
+                                            <li>
+                                                <a href="<?php echo base_url('kerusakan/Detail_Kerusakan')?>">
+                                                    <i class="metismenu-icon pe-7s-display2"></i>
+                                                    Detail Kerusakan
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="<?php echo base_url('kerusakan/Jenis_Kerusakan')?>">
+                                                    <i class="metismenu-icon">
+                                                    </i>Jenis Kerusakan
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    <!-- <a href="<?php echo base_url('kerusakan/Detail_Kerusakan')?>">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Kerusakan
+                                    </a> -->
                                     <a href="tables-regular.html">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Pelapor
                                     </a>
                                 </li>
+                                <!-- <li>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-display2"></i>
+                                        Kerusakan
+                                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <a href="<?php echo base_url('kerusakan/Detail_Kerusakan')?>">
+                                                <i class="metismenu-icon pe-7s-display2"></i>
+                                                Detail Kerusakan
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="elements-dropdowns.html">
+                                                <i class="metismenu-icon">
+                                                </i>Jenis Kerusakan
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li> -->
                             </ul>
                         </div>
                     </div>

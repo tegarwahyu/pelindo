@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="col-lg-11">
   <div class="tab-content">
       <div class="tab-pane tabs-animation fade active show" id="tab-content-0" role="tabpanel">
           <div class="main-card mb-3 card">
