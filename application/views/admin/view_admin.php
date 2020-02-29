@@ -1,7 +1,6 @@
-
-<div class="col-lg-11">
+<div class="col-lg-12">
     <?php echo $this->session->flashdata('message');?>
-    <a href="../admin/admin/addUsers" class="btn btn-success" role="button">Add Users</a>
+    <a href="<?php echo base_url('/admin/admin/addUsers'); ?>" class="btn btn-success" role="button">Add Users</a>
     <br>
     <br>
                                 <div class="main-card mb-5 card">
@@ -52,8 +51,8 @@
                                                     <td><?php echo $u->DIVISION ?></td>
                                                     <td><?php echo $u->EXPERTISE ?></td>
                                                     <td><?php echo $role ?></td>
-                                                    <td><a href="<?php echo ('../admin/admin/editUsers/'.$u->ID_USERS);?>" class="btn btn-success">Edit</a></button>
-                                                    <a href="<?php echo ('../admin/admin/deleteUsers/'.$u->ID_USERS);?>" onclick="return confirm('Ingin menghapus data?');" class="btn btn-danger">Delete</a></td>
+                                                    <td><a href="<?php echo base_url ('/admin/admin/editUsers/'.$u->ID_USERS);?>" class="btn btn-success">Edit</a></button>
+                                                    <a href="<?php echo base_url('/admin/admin/deleteUsers/'.$u->ID_USERS);?>" onclick="return confirm('Ingin menghapus data?');" class="btn btn-danger">Delete</a></td>
                                                 </tr>
                                                 </tbody>
                                             <?php } ?>

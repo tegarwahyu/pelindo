@@ -12,10 +12,8 @@
                               <div class="position-relative form-group"><label for="examplePassword11" class="">Detail Kerusakan</label>
 	                            <div class="col-sm-10">
 	                            	<select type="select" name="detail_kerusakan" class="custom-select">
-                                        <option value="" selected disabled="">Select</option>
-                              			<?php for($i=0;$i < count($data2); $i++) { ?>
-                                        <option value="<?php echo($data2[$i]->ID_DEMAGE_DETAILS); ?>"><?php echo($data2[$i]->NAME_DEMAGE_DETAILS); ?></option>
-                                    	<?php } ?>
+                                        <option value="" selected>Select</option>
+                                        <option value="1">ganti catrid printer</option>
                                     </select>
 	                            </div>
 	                          </div>
@@ -27,10 +25,8 @@
 	                          <label for="examplePassword11" class="">Select Penanggung Jawab</label>
 		                        <div class="col-sm-10" style="margin-left: -15px;}">
 		                        	<select type="select" name="penanggungjawab" class="custom-select">
-	                                    <option value="" selected disabled="">Select PIC</option>
-		                        		<?php for($i=0;$i < count($data3); $i++) { ?>
-	                                    <option value="<?php echo($data3[$i]->ID_USERS); ?>"><?php echo($data3[$i]->NAME); ?></option>
-	                                <?php } ?>
+	                                    <option value="" selected>Select PIC</option>
+	                                    <option value="41">Admin</option>
 	                                </select>
 		                        </div>
 	                      	</div>
@@ -56,7 +52,7 @@
                   </form>
               </div>
 
-              <br>
+              <!-- <br>
 
 			      <div class="card-body row">
 					    <div class="col-md-12">
@@ -75,48 +71,24 @@
 								              <th>Aksi</th>
 								          </tr>
 								      </thead>
-								       <?php 
-					                    $no = 1;
-					                    foreach($data as $u){ 
-					                    ?>
-					                    <tbody>
-					                    <tr>
-					                        <th scope="row"><?php echo $no++ ?></th>
-					                        <td><?php echo $u->TYPE_DEMAGE ?></td>
-					                        <td><?php echo $u->ID_DEMAGE_DETAILS ?></td>
-					                        <td><?php echo $u->NAME ?></td>
-					                        <td><?php echo $u->ID_PRIORITY ?></td>
-					                        <td><?php echo $u->CREATED_AT ?></td>
-					                        <td><a href="#" class="btn btn-success">Edit</a></button>
-			                        		<a href="<?php echo base_url('kerusakan/Jenis_Kerusakan/deleteJenisKerusakan/'.$u->ID_TYPE_DEMAGES);?>" onclick="return confirm('Ingin menghapus data?');" class="btn btn-danger">Delete</a>
-			                        		</td>
-					                    </tr>
-					                    </tbody>
-					                <?php } ?>
-								      <!-- <tbody>
+								      <tbody>
 								      	<td></td>
 								      	<td></td>
 								      	<td></td>
 								      	<td></td>
 								      	<td></td>
 								      	<td></td>
-								      </tbody> -->
+								      </tbody>
 								      
 								  </table>
 					            </div>
 					        </ul>
 					    </div>
-					</div>
+					</div> -->
           </div>
       </div>
   </div>
 
-<script type="text/javascript">
-	$(document).ready(function(){
 
-            $('#table_kerusakan_id').DataTable();
-
-      });
-</script>
 
 </div>

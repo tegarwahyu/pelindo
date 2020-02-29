@@ -97,8 +97,18 @@
     </div>
 <script type="text/javascript" src="<?php echo base_url('assets/template/assets/scripts/main.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery-3.1.0.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery.dataTables.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/bootstrap.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/bootstrap.js');?>"></script>
+
+<!-- <script src="<?php echo base_url().'assets/js/jquery-2.2.4.min.js'?>"> </script>
+
+<script src="<?php echo base_url().'assets/js/bootstrap.js'?>"> </script>
+
+<script src="<?php echo base_url().'assets/js/jquery.dataTables.min.js'?>"> </script>
+
+<script src="<?php echo base_url().'assets/js/moment.js'?>"> </script> -->
 
 </body>
 </html>

@@ -17,8 +17,13 @@ class Model_detail_kerusakan extends CI_Model {
 		$this->db->update($table,$data);
 	}
 
-	public function delete_data($where,$table){
+	public function delete_detail($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+
+	public function getdataDetailKerusakan(){
+    	$result = $this->db->query('SELECT * FROM DEMAGE_DETAILS');
+    	return $result->result();
+  	}
 }

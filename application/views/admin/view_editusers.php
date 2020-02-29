@@ -1,12 +1,13 @@
-<div class="col-lg-11">
+<div class="col-lg-12">
 <div class="main-card mb-5 card">
   <div class="card-body">
     <h5 class="card-title">Users</h5>
     <?php foreach($user as $u){ 
       $skelas = $u->ROLE;
       ?>
-      <form class="form-horizontal" action="<?php echo base_url('admin/admin/addUsers'); ?>" method="post">
+      <form class="form-horizontal" action="<?php echo base_url('admin/admin/editUsers/'.$u->ID_USERS); ?>" method="post">
         <div class="form-group">
+          <input type="text" class="form-control" name="id_users" value="<?php echo $u->ID_USERS ?>">
           <label class="control-label col-sm-2" for="text">Username :</label>
           <div class="col-sm-12">
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" value="<?php echo $u->USERNAME ?>">

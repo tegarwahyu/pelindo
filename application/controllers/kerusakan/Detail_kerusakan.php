@@ -13,7 +13,7 @@ class Detail_kerusakan extends CI_Controller {
 	{
 		$data['title'] = 'Halaman Detail Kerusakan';
 		$data['subtitle'] = 'Halaman Pengelolahan Detail Kerusakan IT Helpdesk';
-		$data['users'] = $this->Model_detail_kerusakan->get_dataDetailKerusakan();
+		$data['data'] = $this->Model_detail_kerusakan->get_dataDetailKerusakan();
 		$data['content'] = $this->load->view('detail_kerusakan/index', $data ,TRUE); 
 		$this->load->view('template/main', $data);
 	}
@@ -28,7 +28,7 @@ class Detail_kerusakan extends CI_Controller {
 			// $role = $this->input->post('role');
 
 			$data = array(
-				'DEMAGE_DETAILS' => $detail_kerusakan,
+				'NAME_DEMAGE_DETAILS' => $detail_kerusakan,
 				// 'PASSWORD' => $password,
 				// 'NAME' => $name,
 				// 'POSITION' => $position,
@@ -53,6 +53,7 @@ class Detail_kerusakan extends CI_Controller {
 	{
 		if(isset($_POST['submit']))
 		{
+			$id = $this->input->post('id_detail');
 			$detail_kerusakan = $this->input->post('detail_kerusakan');
 			// $password = $this->input->post('password');
 			// $name = $this->input->post('name');
@@ -60,32 +61,32 @@ class Detail_kerusakan extends CI_Controller {
 			// $role = $this->input->post('role');
 
 			$data = array(
-				'DEMAGE_DETAILS' => $detail_kerusakan,
+				'ID_DEMAGE_DETAILS' => $id,
+				'NAME_DEMAGE_DETAILS' => $detail_kerusakan,
 				// 'PASSWORD' => $password,
 				// 'NAME' => $name,
 				// 'POSITION' => $position,
 				// 'ROLE' => $role,
-				'CREATED_AT' => date("d-m-Y"),
 				'UPDATED_AT' => date("d-m-Y")
 			);
 
 			$where = array(
-				'ID_DEMAGE_DETAILS' => $this->input->post('ID_DEMAGE_DETAILS')
-
+				'ID_DEMAGE_DETAILS' => $id
 			);
 
-			$this->Model_detail_kerusakan->update_data($data, $where, 'DEMAGE_DETAILS')->result();
-			redirect('Detail_kerusakanController/index', 'refresh');
+			$this->Model_detail_kerusakan->update_data($data, $where, 'DEMAGE_DETAILS');
+			$this->session->set_flashdata('message', '<div class="alert alert-success">
+                    Data Berhasil di Edit.
+                </div>');
+			redirect('detail_kerusakan/index','refresh');
 		}
-		
 		else
 		{
-			$data['title'] = 'Halaman PIC';
+			$data['title'] = 'Halaman Detail Kerusakan';
 			$data['subtitle'] = 'Halaman Pengelolahan Detail Kerusakan IT Helpdesk';
-			// $data['user'] = $this->model_admin->edit_data($where,'USERS')->result();
 			$where = array('ID_DEMAGE_DETAILS' => $ID_DEMAGE_DETAILS);
-			$data['users'] = $this->Model_detail_kerusakan->update_data($where,'DEMAGE_DETAILS')->result();
-			$data['content'] = $this->load->view('detail_kerusakan/index', $data ,TRUE); 
+			$data['data'] = $this->Model_detail_kerusakan->update_data($where,'DEMAGE_DETAILS')->result();
+			$data['content'] = $this->load->view('admin/edit', $data, TRUE); 
 			$this->load->view('template/main', $data);
 		}
 
@@ -93,9 +94,11 @@ class Detail_kerusakan extends CI_Controller {
 
 	function deleteDetailKerusakan($id){
 		$where = array('ID_DEMAGE_DETAILS' => $id);
-		$this->Model_detail_kerusakan->delete_data($where,'DEMAGE_DETAILS');
+		$this->Model_detail_kerusakan->delete_detail($where,'DEMAGE_DETAILS');
+		$this->session->set_flashdata('message', '<div class="alert alert-success">
+                    Data berhasil dihapus.
+                </div>');
 		redirect('kerusakan/Detail_Kerusakan/index', 'refresh');
-		// redirect('admin/detail_kerusakan/index','refresh');
 	}
 
 }
