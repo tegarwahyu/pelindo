@@ -72,6 +72,7 @@
 								              <th>Penanggung Jawab</th>
 								              <th>Tingkat Kesulitan</th>
 								              <th>Created At</th>
+								              <th>Updated At</th>
 								              <th>Aksi</th>
 								          </tr>
 								      </thead>
@@ -87,7 +88,8 @@
 					                        <td><?php echo $u->NAME ?></td>
 					                        <td><?php echo $u->ID_PRIORITY ?></td>
 					                        <td><?php echo $u->CREATED_AT ?></td>
-					                        <td><a href="#" class="btn btn-success">Edit</a></button>
+					                        <td><?php echo $u->UPDATED_AT ?></td>
+					                        <td><a href="<?php echo base_url('kerusakan/Jenis_Kerusakan/editJenisKerusakan/'.$u->ID_TYPE_DEMAGES);?>" class="btn btn-success">Edit</a></button>
 			                        		<a href="<?php echo base_url('kerusakan/Jenis_Kerusakan/deleteJenisKerusakan/'.$u->ID_TYPE_DEMAGES);?>" onclick="return confirm('Ingin menghapus data?');" class="btn btn-danger">Delete</a>
 			                        		</td>
 					                    </tr>

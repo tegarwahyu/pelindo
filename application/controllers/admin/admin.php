@@ -1,4 +1,4 @@
-<?php
+editUsers<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
@@ -87,7 +87,7 @@ class Admin extends CI_Controller {
 	{
 		if(isset($_POST['submit']))
 		{
-			$id = $this->input->post('id_users');
+			$id_users = $this->input->post('id_users');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$name = $this->input->post('name');
@@ -97,26 +97,33 @@ class Admin extends CI_Controller {
 			$division = $this->input->post('division');
 			$expertise = $this->input->post('expertise');
 
-			$data = array(
-				'USERNAME' => $username,
-				'PASSWORD' => $password,
-				'NAME' => $name,
-				'POSITION' => $position,
-				'UPDATED_AT' => $updated_at,
-				'ROLE' => $role, 
-				'DIVISION' => $division, 
-				'EXPERTISE' => $expertise
-			);
+			// $this->model_admin->update(array(
+   //                  'USERNAME' => $username,
+   //                  'PASSWORD' => $password,
+   //                  'NAME' => $name,
+   //                  'POSITION' => $position,
+   //                  'UPDATED_AT' => $updated_at,
+   //                  'ROLE' => $role,
+   //                  'DIVISION' => $division,
+   //                  'EXPERTISE' => $expertise
+   //                  ), 
 
-			$where = array(
-				'ID_USERS' => $id
-
-			);
-
-			$this->model_admin->update_data($data, $where, 'USERS');
-			$this->session->set_flashdata('message', '<div class="alert alert-success">
+			// array('ID_USERS' => $this->input->post('id_user')
+   //          )
+   //          );
+			$this->model_admin->update_users($id_users,$username,$password,$name, $position, $updated_at, $role, $division, $expertise);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success">
                     Data Berhasil di Edit.
                 </div>');
+				
+			}
+			else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">
+                    Data Gagal di Edit.
+                </div>');
+			}
+			
 			redirect('admin/admin');
 		}
 		else
@@ -128,8 +135,7 @@ class Admin extends CI_Controller {
 			$data['content'] = $this->load->view('admin/view_editusers', $data, TRUE); 
 			$this->load->view('template/main', $data);
 		}
-
-	}
+	}	
 
 	public function deleteUsers($id){
 		$where = array('ID_USERS' => $id);
@@ -173,23 +179,22 @@ class Admin extends CI_Controller {
 	{
 		if(isset($_POST['submit']))
 		{
+			$id_priority = $this->input->post('id_priority');
 			$name_priority = $this->input->post('name_priority');
 			$updated_at = date("d-m-Y");
 
-			$data = array(
-				'NAME_PRIORITY' => $name_priority,
-				'UPDATED_AT' => $updated_at
-			);
-
-			$where = array(
-				'ID_PRIORITY' => $ID_PRIORITY
-
-			);
-
-			$this->model_admin->update_priority($data, $where, 'PRIORITY')->result();
-			$this->session->set_flashdata('message', '<div class="alert alert-success">
+			$this->model_admin->update_priority($id_priority, $name_priority, $updated_at);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success">
                     Data Berhasil di Edit.
                 </div>');
+				
+			}
+			else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">
+                    Data Gagal di Edit.
+                </div>');
+			}
 			redirect('admin/admin/priority');
 		}
 		else
@@ -213,5 +218,14 @@ class Admin extends CI_Controller {
                 </div>');
 		redirect('admin/admin/priority');
 	}
+
+	public function ticket()
+	{
+		$data['title'] = 'Halaman Dasboard Ticketing';
+		$data['subtitle'] = 'Halaman untuk mengelola Ticketing';
+		//$data['priority'] = $this->model_admin->get_listPriority();
+		$data['content'] = $this->load->view('admin/view_ticket', $data, TRUE); 
+		$this->load->view('template/main', $data);
+	}	
 
 }

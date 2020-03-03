@@ -7,7 +7,11 @@
       ?>
       <form class="form-horizontal" action="<?php echo base_url('admin/admin/editUsers/'.$u->ID_USERS); ?>" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" name="id_users" value="<?php echo $u->ID_USERS ?>">
+
+          <div class="col-sm-12">
+          <input type="hidden" name="id_users" class="form-control" value="<?php echo $u->ID_USERS; ?>" class="form-control">
+          </div>
+
           <label class="control-label col-sm-2" for="text">Username :</label>
           <div class="col-sm-12">
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username" value="<?php echo $u->USERNAME ?>">
@@ -16,7 +20,7 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="text">Password :</label>
           <div class="col-sm-12">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="<?php echo $u->PASSWORD ?>">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="<?php echo $u->PASSWORD ?>" readonly>
           </div>
         </div>
         <div class="form-group">
@@ -34,7 +38,12 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="text">Role :</label>
           <div class="col-sm-12">
-            <input type="text" class="form-control" id="role" name="role" placeholder="Enter role" value="<?php echo $u->ROLE ?>">
+            <select id="role" name="role" class="form-control" required="" value="<?php echo $u->ROLE; selected?>">
+              <option value="1">Superadmin</option>
+              <option value="2">Admin</option>
+              <option value="3">User</option>
+              <option value="4">Person In Charge (PIC)</option>
+            </select>
           </div>
         </div>
         <div class="form-group">

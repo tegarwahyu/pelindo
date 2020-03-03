@@ -1,4 +1,4 @@
-<div class="col-lg-12">
+<div class="col-lg-11">
 	<!-- selamat anda telah berpindah halaman -->
 	<div class="main-card mb-5 card">
 		<div class="card-body">

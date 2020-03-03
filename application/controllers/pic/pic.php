@@ -22,7 +22,7 @@ class Pic extends CI_Controller {
 		$data['title'] = 'Halaman Dasboard PIC';
 		$data['subtitle'] = 'Halaman untuk mengelola IT Helpdesk secara singkat';
 		$data['users'] = $this->model_admin->get_listUsers();
-		$data['content'] = $this->load->view('admin/view_admin', $data, TRUE); 
+		$data['content'] = $this->load->view('pic/index', $data, TRUE); 
 		$this->load->view('template/main', $data);
 	}
 

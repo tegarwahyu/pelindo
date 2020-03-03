@@ -21,6 +21,12 @@ class Model_admin extends CI_Model {
 		$this->db->update($table,$data);
 	}
 
+	public function update_users($id_users, $username, $password, $name, $position, $updated_at, $role, $division, $expertise)
+	{
+		$hasil=$this->db->query("UPDATE USERS SET USERNAME='$username',PASSWORD='$password',NAME='$name',POSITION='$position',UPDATED_AT='$updated_at',ROLE='$role',DIVISION='$division',EXPERTISE='$expertise' WHERE ID_USERS='$id_users'");
+        return $hsl;
+	}
+
 	public function delete_data($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
@@ -40,9 +46,10 @@ class Model_admin extends CI_Model {
 		return $this->db->get_where($table,$where);	
 	}
 
-	public function update_priority($where,$data,$table){
-		$this->db->where($where);
-		$this->db->update($table,$data);
+	public function update_priority($id_priority, $name_priority, $updated_at){
+		$hasil=$this->db->query("UPDATE PRIORITY SET NAME_PRIORITY='$name_priority',UPDATED_AT='$updated_at' WHERE ID_PRIORITY='$id_priority'");
+        return $hsl;
+		
 	}
 
 	public function delete_priority($where,$table){

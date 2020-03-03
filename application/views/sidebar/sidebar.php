@@ -32,18 +32,19 @@
                     <div class="scrollbar-sidebar">
                         <div class="app-sidebar__inner">
                             <ul class="vertical-nav-menu">
-                                <li class="app-sidebar__heading">Dashboards</li>
+                                <li class="app-sidebar__heading">Dashboards Admin</li>
                                 <li>
-                                    <a href="<?php echo base_url ('/admin/admin'); ?>" class="mm-active">
+                                    <a href="<?php echo base_url('/admin/'); ?>">
                                         <i class="metismenu-icon pe-7s-rocket"></i>
                                         Halaman Dasboard
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Master</li>
                                 <li>
-                                    <a href="<?php echo base_url('/pic/Pic/indexPIC')?>">
-                                        <i class="metismenu-icon pe-7s-eyedropper"></i>
-                                        PIC
+                                <li>
+                                    <a href="<?php echo base_url('/admin/admin/'); ?>">
+                                        <i class="metismenu-icon pe-7s-rocket"></i>
+                                        Users
                                     </a>
                                 </li>
                                 <li>
@@ -74,7 +75,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="tables-regular.html">
+                                    <a href="<?php echo base_url('users/users/addPelaporbyUser')?>">
                                         <i class="metismenu-icon pe-7s-display2"></i>
                                         Pelapor
                                     </a>

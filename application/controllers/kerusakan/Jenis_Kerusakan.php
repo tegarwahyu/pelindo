@@ -59,39 +59,37 @@ class Jenis_Kerusakan extends CI_Controller {
 		}
 	}
 
-	public function editJenisKerusakan()
+	public function editJenisKerusakan($ID_TYPE_DEMAGES)
 	{
 		if(isset($_POST['submit'])){
+			$id_jenis = $this->input->post('id_jenis');
 			$jenis_kerusakan = $this->input->post('jenis_kerusakan');
 			$detail_kerusakan = $this->input->post('detail_kerusakan');
 			$penanggungjawab = $this->input->post('penanggungjawab');
 			$tingkat_kesulitan = $this->input->post('tingkat_kesulitan');
-			$created_at = date("d-m-Y");
 			$update_at = date("d-m-Y");
 
-			$data = array(
-				'ID_TYPE_DEMAGES' => '',
-				'TYPE_DEMAGE' => $jenis_kerusakan,
-				'ID_DEMAGE_DETAILS' => $detail_kerusakan,
-				'ID_USERS' => $penanggungjawab,
-				'ID_PRIORITY' => $tingkat_kesulitan,
-				'CREATED_AT' => $created_at,
-				'UPDATED_AT' => $update_at
-
-			);
-
-			$this->Model_jenis_kerusakan->input_data($data,'TYPE_DEMAGE');
-			$this->session->set_flashdata('message', '<div class="alert alert-success">
-                    Data Berhasil Ditambahkan.
+			$this->Model_jenis_kerusakan->update_jenis($id_jenis,$jenis_kerusakan,$detail_kerusakan,$penanggungjawab,$tingkat_kesulitan,$update_at);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success">
+                    Data Berhasil di Edit.
                 </div>');
+			}
+			else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">
+                    Data Gagal di Edit.
+                </div>');
+			}
+			
 			redirect('kerusakan/jenis_kerusakan/index', 'refresh');
-
 		}
-		else{
-			$data['title'] = 'Halaman Jenis Kerusakan';
-			$data['subtitle'] = 'Halaman Pengelolahan Jenis Kerusakan IT Helpdesk';
-			// $data['users'] = $this->Model_detail_kerusakan->get_dataDetailKerusakan();quotemeta(str)							
-			$data['content'] = $this->load->view('Jenis_Kerusakan/index', $data ,TRUE); 
+		else
+		{
+			$data['title'] = 'Halaman Detail Kerusakan';
+			$data['subtitle'] = 'Halaman Pengelolahan Detail Kerusakan IT Helpdesk';
+			$where = array('ID_TYPE_DEMAGES' => $ID_TYPE_DEMAGES);
+			$data['data'] = $this->Model_jenis_kerusakan->edit_data($where,'TYPE_DEMAGE')->result();
+			$data['content'] = $this->load->view('Jenis_Kerusakan/edit', $data, TRUE); 
 			$this->load->view('template/main', $data);
 		}
 	}

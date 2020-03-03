@@ -17,6 +17,16 @@ class Model_detail_kerusakan extends CI_Model {
 		$this->db->update($table,$data);
 	}
 
+	public function edit_data($where,$table){		
+		return $this->db->get_where($table,$where);	
+	}
+
+	public function update_detail($id_detail_kerusakan, $detail_kerusakan, $update_at)
+	{
+		$hasil=$this->db->query("UPDATE DEMAGE_DETAILS SET NAME_DEMAGE_DETAILS='$detail_kerusakan',UPDATED_AT='$update_at' WHERE ID_DEMAGE_DETAILS='$id_detail_kerusakan'");
+        return $hasil;
+	}
+
 	public function delete_detail($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);

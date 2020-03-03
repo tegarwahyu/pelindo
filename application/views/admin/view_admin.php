@@ -1,11 +1,11 @@
-<div class="col-lg-12">
+<div class="col-lg-12" style="margin-right: -125px;">
     <?php echo $this->session->flashdata('message');?>
     <a href="<?php echo base_url('/admin/admin/addUsers'); ?>" class="btn btn-success" role="button">Add Users</a>
     <br>
     <br>
                                 <div class="main-card mb-5 card">
                                     <div class="card-body">
-                                        <h5 class="card-title">Users</h5>
+                                        <h5 class="card-title">Data User</h5>
                                         <div class="table-responsive">
                                             <table class="mb-0 table">
                                                 <thead>

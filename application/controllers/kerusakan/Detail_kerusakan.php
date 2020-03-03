@@ -22,17 +22,9 @@ class Detail_kerusakan extends CI_Controller {
 	{
 		if(isset($_POST['submit'])){
 			$detail_kerusakan = $this->input->post('detail_kerusakan');
-			// $password = $this->input->post('password');
-			// $name = $this->input->post('name');
-			// $position = $this->input->post('position');
-			// $role = $this->input->post('role');
 
 			$data = array(
 				'NAME_DEMAGE_DETAILS' => $detail_kerusakan,
-				// 'PASSWORD' => $password,
-				// 'NAME' => $name,
-				// 'POSITION' => $position,
-				// 'ROLE' => $role,
 				'CREATED_AT' => date("d-m-Y"),
 				'UPDATED_AT' => date("d-m-Y")
 			);
@@ -53,41 +45,38 @@ class Detail_kerusakan extends CI_Controller {
 	{
 		if(isset($_POST['submit']))
 		{
-			$id = $this->input->post('id_detail');
+			$id_detail_kerusakan = $this->input->post('id_detail_kerusakan');
 			$detail_kerusakan = $this->input->post('detail_kerusakan');
-			// $password = $this->input->post('password');
-			// $name = $this->input->post('name');
-			// $position = $this->input->post('position');
-			// $role = $this->input->post('role');
+			$update_at = date("d-m-Y");
 
-			$data = array(
-				'ID_DEMAGE_DETAILS' => $id,
-				'NAME_DEMAGE_DETAILS' => $detail_kerusakan,
-				// 'PASSWORD' => $password,
-				// 'NAME' => $name,
-				// 'POSITION' => $position,
-				// 'ROLE' => $role,
-				'UPDATED_AT' => date("d-m-Y")
-			);
-
-			$where = array(
-				'ID_DEMAGE_DETAILS' => $id
-			);
-
-			$this->Model_detail_kerusakan->update_data($data, $where, 'DEMAGE_DETAILS');
-			$this->session->set_flashdata('message', '<div class="alert alert-success">
+			$this->Model_detail_kerusakan->update_detail($id_detail_kerusakan,$detail_kerusakan,$update_at);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success">
                     Data Berhasil di Edit.
                 </div>');
-			redirect('detail_kerusakan/index','refresh');
+				
+			}
+			else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">
+                    Data Gagal di Edit.
+                </div>');
+			}
+			
+			redirect('kerusakan/Detail_Kerusakan/index', 'refresh');
 		}
 		else
 		{
 			$data['title'] = 'Halaman Detail Kerusakan';
 			$data['subtitle'] = 'Halaman Pengelolahan Detail Kerusakan IT Helpdesk';
 			$where = array('ID_DEMAGE_DETAILS' => $ID_DEMAGE_DETAILS);
-			$data['data'] = $this->Model_detail_kerusakan->update_data($where,'DEMAGE_DETAILS')->result();
-			$data['content'] = $this->load->view('admin/edit', $data, TRUE); 
+			$data['data'] = $this->Model_detail_kerusakan->edit_data($where,'DEMAGE_DETAILS')->result();
+			$data['content'] = $this->load->view('detail_kerusakan/edit', $data, TRUE); 
 			$this->load->view('template/main', $data);
+
+			// $where = array('ID_USERS' => $ID_USERS);
+			// $data['user'] = $this->model_admin->edit_data($where,'USERS')->result();
+			// $data['content'] = $this->load->view('admin/view_editusers', $data, TRUE); 
+			// $this->load->view('template/main', $data);
 		}
 
 	}

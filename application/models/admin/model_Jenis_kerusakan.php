@@ -29,13 +29,16 @@ class Model_jenis_kerusakan extends CI_Model {
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
-// $this->db->where('tb_peminjaman.id_peminjaman', $id)
-// 						  ->select('tb_peminjaman.*, ruang.ruang, gedung.gedung, mahasiswa.nama, kelas.nama_kelas, ruang.status')
-// 						  ->join('mahasiswa', 'tb_peminjaman.nim=mahasiswa.nim')
-// 						  ->join('kelas', 'mahasiswa.id_kelas=kelas.id_kelas')
-// 						  ->join('ruang', 'tb_peminjaman.id_ruang=ruang.id_ruang')
-// 						  ->join('gedung', 'ruang.id_gedung=gedung.id_gedung')
-// 						  ->get('tb_peminjaman');
+
+	public function edit_data($where,$table){		
+		return $this->db->get_where($table,$where);	
+	}
+
+	public function update_jenis($id_jenis,$jenis_kerusakan,$detail_kerusakan,$penanggungjawab,$tingkat_kesulitan,$update_at)
+	{
+		$hasil=$this->db->query("UPDATE TYPE_DEMAGE SET TYPE_DEMAGE='$jenis_kerusakan',ID_DEMAGE_DETAILS='$detail_kerusakan',ID_USERS='$penanggungjawab',ID_PRIORITY='$tingkat_kesulitan',UPDATED_AT='$update_at' WHERE ID_DEMAGE_DETAILS='$id_jenis'");
+        return $hasil;
+	}
 
 
 }
