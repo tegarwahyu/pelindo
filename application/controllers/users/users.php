@@ -8,7 +8,7 @@ class Users extends CI_Controller {
         parent::__construct();
         $this->load->model('admin/model_user');
 
-        if($this->session->userdata('status') != "login" || $this->session->userdata('akses')!='3')
+        if($this->session->userdata('status') != "login" || $this->session->userdata('akses')!='2' && $this->session->userdata('akses')!='3')
         {
         	$this->session->set_flashdata('message', '<div class="alert alert-danger">
                     Anda diharuskan untuk login terlebih dahulu
@@ -22,7 +22,11 @@ class Users extends CI_Controller {
 		$data['title'] = 'Halaman Dasboard Users';
 		$data['subtitle'] = 'Halaman untuk mengelola IT Helpdesk secara singkat';
 		// $data['users'] = $this->model_user->get_listUsers();
-		$data['content'] = $this->load->view('users/index', $data, TRUE); 
+		if ($this->session->userdata("position") == 'ketua') {
+			$data['content'] = $this->load->view('users/index_ketua', $data, TRUE);
+		}else{
+			$data['content'] = $this->load->view('users/index', $data, TRUE); 
+		}
 		$this->load->view('template/main', $data);
 	}
 

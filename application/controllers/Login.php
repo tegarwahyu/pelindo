@@ -41,17 +41,18 @@ class Login extends CI_Controller {
 				if ($id->ROLE=='2') 
 				{
 					//untuk admin
-					$data_session = array('nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
+					$data_session = array('id_users'=> $id->ID_USERS,'position'=> $id->POSITION,'nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
 					$this->session->set_userdata('akses','2');
 					$this->session->set_userdata($data_session);
 					$this->session->set_flashdata('message', '<div class="alert alert-success">Selamat datang, Anda berhasil login.</div>');
 					redirect(base_url("admin/admin"));
+					// $this->load->view('template/main');
 				}
 
 				elseif ($id->ROLE=='3') 
 				{
 					//untuk user pelapor
-					$data_session = array('nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
+					$data_session = array('id_users'=> $id->ID_USERS,'position'=> $id->POSITION,'nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
 					$this->session->set_userdata('akses','3');
 					$this->session->set_userdata($data_session);
 					$this->session->set_flashdata('message', '<div class="alert alert-success">Selamat datang, Anda berhasil login.</div>');
@@ -61,7 +62,7 @@ class Login extends CI_Controller {
 				elseif ($id->ROLE=='4') 
 				{
 					//untuk PIC
-					$data_session = array('nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
+					$data_session = array('id_users'=> $id->ID_USERS,'position'=> $id->POSITION,'nama' => $username, 'divisi' => $id->DIVISION, 'role' => $id->ROLE, 'status' => "login");
 					$this->session->set_userdata('akses','4');
 					$this->session->set_userdata($data_session);
 					$this->session->set_flashdata('message', '<div class="alert alert-success">Selamat datang, Anda berhasil login.</div>');

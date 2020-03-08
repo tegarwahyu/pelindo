@@ -1,6 +1,6 @@
 <div class="col-lg-11">
     <?php echo $this->session->flashdata('message');?>
-    <!-- <a href="<?php echo base_url('/admin/admin/addUsers'); ?>" class="btn btn-success" role="button">Add Users</a> -->
+    <a href="<?php echo base_url('/admin/admin/addUsers'); ?>" class="btn btn-success" role="button">Add Users</a>
     <br>
     <br>
                                 <div class="main-card mb-5 card">

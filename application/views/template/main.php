@@ -1,114 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>IT Helpdesk Pelindo III.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
-    <meta name="msapplication-tap-highlight" content="no">
-    <!--
-    =========================================================
-    * ArchitectUI HTML Theme Dashboard - v1.0.0
-    =========================================================
-    * Product Page: https://dashboardpack.com
-    * Copyright 2019 DashboardPack (https://dashboardpack.com)
-    * Licensed under MIT (https://github.com/DashboardPack/architectui-html-theme-free/blob/master/LICENSE)
-    =========================================================
-    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    -->
-<link href="<?php echo base_url('assets/template/main.css');?>" rel="stylesheet"></head>
-<link href="<?php echo base_url('assets/template/assets/css/bootstrap.min.css');?>" rel="stylesheet" />
-<link href="<?php echo base_url('assets/template/assets/css/jquery.dataTables.min.css');?>" rel="stylesheet" />
-<body>
+    <title>Pelindo</title>
     
-         <?php $this->load->view('header/header'); ?>    
-       
-        <div class="app-main">
+      <!-- Meta -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="Pelindo" />
+      <meta name="keywords" content="free dashboard template, free admin, free bootstrap template, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive" />
+      <meta name="author" content="codedthemes">
+      <!-- Favicon icon -->
+      <link rel="icon" href="<?php echo base_url('assets/template/assets/images/favicon.ico')?>" type="image/x-icon">
+      <!-- Google font-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+      <!-- Required Fremwork -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/css/bootstrap/css/bootstrap.min.css')?>">
+      <!-- themify-icons line icon -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/icon/themify-icons/themify-icons.css')?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/icon/font-awesome/css/font-awesome.min.css')?>">
+      <!-- ico font -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/icon/icofont/css/icofont.css')?>">
+      <!-- Style.css -->
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/css/style.css')?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/template/assets/css/jquery.mCustomScrollbar.css')?>">
+  </head>
 
-            <?php $this->load->view('sidebar/sidebar'); ?> 
-                
-                <div class="app-main__outer">
-                    <div class="app-main__inner">
-                        <div class="app-page-title">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                    <div class="page-title-icon">
-                                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                                        </i>
-                                    </div>
-                                    <div><?php echo $title ?>
-                                        <div class="page-title-subheading"><?php echo $subtitle ?>
+  <body>
+      
+       <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="loader-track">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            <!-- menu header -->
+            <?php $this->load->view('header/header'); ?> 
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    
+                    <!-- menu sideba -->
+                    <?php $this->load->view('sidebar/sidebar'); ?> 
+
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
+                                    <div class="page-body">
+                                      <div class="row">
+                                            <?php 
+                                                if(!empty($content)){
+                                                echo $content;
+                                            }
+                                            ?>
+
                                         </div>
+                                    </div>
+
+                                    <div id="styleSelector">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <?php 
-                        if(!empty($content)){
-                        echo $content;
-                    }
-                    ?>
-                                
-                    <div class="app-wrapper-footer">
-                        <div class="app-footer">
-                            <div class="app-footer__inner">
-                                <div class="app-footer-left">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a href="javascript:void(0);" class="nav-link">
-                                                Footer Link 1
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="javascript:void(0);" class="nav-link">
-                                                Footer Link 2
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="app-footer-right">
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                            <a href="javascript:void(0);" class="nav-link">
-                                                Footer Link 3
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="javascript:void(0);" class="nav-link">
-                                                <div class="badge badge-success mr-1 ml-0">
-                                                    <small>NEW</small>
-                                                </div>
-                                                Footer Link 4
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>    </div>
-                <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+                </div>
+            </div>
         </div>
-    </div>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/scripts/main.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery-3.1.0.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery.dataTables.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/bootstrap.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/bootstrap.js');?>"></script>
-
-<!-- <script src="<?php echo base_url().'assets/js/jquery-2.2.4.min.js'?>"> </script>
-
-<script src="<?php echo base_url().'assets/js/bootstrap.js'?>"> </script>
-
-<script src="<?php echo base_url().'assets/js/jquery.dataTables.min.js'?>"> </script>
-
-<script src="<?php echo base_url().'assets/js/moment.js'?>"> </script> -->
 
 </body>
+
+<!-- Warning Section Ends -->
+<!-- Required Jquery -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery/jquery.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery-ui/jquery-ui.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/popper.js/popper.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/bootstrap/js/bootstrap.min.js')?>"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/jquery-slimscroll/jquery.slimscroll.js')?>"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/modernizr/modernizr.js')?>"></script>
+<!-- am chart -->
+<script src="<?php echo base_url('assets/template/assets/pages/widget/amchart/amcharts.min.js')?>"></script>
+<script src="<?php echo base_url('assets/template/assets/pages/widget/amchart/serial.min.js')?>"></script>
+<!-- Chart js -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/chart.js/Chart.js')?>"></script>
+<!-- Todo js -->
+<script type="text/javascript " src="<?php echo base_url('assets/template/assets/pages/todo/todo.js')?>"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/pages/dashboard/custom-dashboard.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/template/assets/js/script.js')?>"></script>
+<script type="text/javascript " src="<?php echo base_url('assets/template/assets/js/SmoothScroll.js')?>"></script>
+<script src="<?php echo base_url('assets/template/assets/js/pcoded.min.js')?>"></script>
+<script src="<?php echo base_url('assets/template/assets/js/vartical-demo.js')?>"></script>
+<script src="<?php echo base_url('assets/template/assets/js/jquery.mCustomScrollbar.concat.min.js')?>"></script>
 </html>

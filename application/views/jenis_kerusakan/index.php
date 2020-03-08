@@ -14,7 +14,7 @@
 	                            	<select type="select" name="detail_kerusakan" class="custom-select">
                                         <option value="" selected disabled="">Select</option>
                               			<?php for($i=0;$i < count($data2); $i++) { ?>
-                                        <option value="<?php echo($data2[$i]->ID_DEMAGE_DETAILS); ?>"><?php echo($data2[$i]->NAME_DEMAGE_DETAILS); ?></option>
+                                        <option value="<?php echo($data2[$i]->ID_DEMAGE_DETAILS); ?>"><?php echo($data2[$i]->DEMAGE_DETAILS); ?></option>
                                     	<?php } ?>
                                     </select>
 	                            </div>

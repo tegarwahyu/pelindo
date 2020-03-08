@@ -24,7 +24,7 @@
 		                    <tbody>
 		                    <tr>
 		                        <th scope="row"><?php echo $no++ ?></th>
-		                        <td><?php echo $u->NAME_DEMAGE_DETAILS ?></td>
+		                        <td><?php echo $u->DEMAGE_DETAILS ?></td>
 		                        <td><?php echo $u->CREATED_AT ?></td>
 		                        <td><?php echo $u->UPDATED_AT ?></td>
 
