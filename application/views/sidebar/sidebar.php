@@ -63,6 +63,13 @@
                     <span class="pcoded-mcaret"></span>
                 </a>
             </li>
+            <li class="pcoded">
+                <a href="<?php echo base_url('/users/users/index'); ?>">
+                    <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                    <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Persetujuan</span>
+                    <span class="pcoded-mcaret"></span>
+                </a>
+            </li>
             
         </ul>
         <?php } elseif ($this->session->userdata('akses')=='3') { ?> <!-- pelapor -->

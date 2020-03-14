@@ -7,6 +7,7 @@ class Users extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('admin/model_user');
+        // $this->load->model('admin/model_ticket');
 
         if($this->session->userdata('status') != "login" || $this->session->userdata('akses')!='2' && $this->session->userdata('akses')!='3')
         {
@@ -21,8 +22,12 @@ class Users extends CI_Controller {
 	{
 		$data['title'] = 'Halaman Dasboard Users';
 		$data['subtitle'] = 'Halaman untuk mengelola IT Helpdesk secara singkat';
-		// $data['users'] = $this->model_user->get_listUsers();
-		if ($this->session->userdata("position") == 'ketua') {
+		if ($this->session->userdata("position") == 'ketua' || $this->session->userdata("position") == 'it') {
+			//$where = $this->session->userdata("position");
+			$data['ticket'] = $this->model_user->get_joindata();
+			//print_r($this->model_user->get_listticket()->result());
+			//die();
+
 			$data['content'] = $this->load->view('users/index_ketua', $data, TRUE);
 		}else{
 			$data['content'] = $this->load->view('users/index', $data, TRUE); 

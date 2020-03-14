@@ -103,6 +103,31 @@ class Ticket extends CI_Controller {
 			$this->load->view('template/main', $data);
 	}
 
+	public function verifikasi_ticket($ID_TICKET)
+	{
+		// if(isset($_POST['submit']))
+		// {
+			$id_ticket = $ID_TICKET;
+			$status = '2';
+			$update_at = date("d-m-Y");
+
+			$this->model_ticket->update_status($ID_TICKET,$status,$update_at);
+			if ($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('message', '<div class="alert alert-success">
+                    Data Berhasil di Verifikasi.
+                </div>');
+				
+			}
+			else{
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">
+                    Maaf Verifikasi Gagal, Silahkan Coba Kembali.
+                </div>');
+			}
+			
+			redirect('/users/users/index');
+		// }
+	}
+
 }
 
 /* End of file ticket.php */
